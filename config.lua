@@ -4,7 +4,7 @@
 
 -- Global configuration
 Config = {
-    language = 'en',
+    language = 'fr',
     color = { r = 230, g = 230, b = 230, a = 255 }, -- Text color
     font = 0, -- Text font
     time = 5000, -- Duration to display the text (in ms)
