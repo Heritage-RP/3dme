@@ -9,6 +9,8 @@ local lang = Languages[Config.language]
 local function onMeCommand(source, args)
     local text = "* " .. lang.prefix .. table.concat(args, " ") .. " *"
     TriggerClientEvent('3dme:shareDisplay', -1, text, source)
+    -- the length only: what players write stays between them
+    HrpLog.business.info('me shown', { source = source, length = #text })
 end
 
 -- Register the command

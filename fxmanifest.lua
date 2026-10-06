@@ -7,4 +7,7 @@ version '3.0'
 
 shared_script 'config.lua'
 client_script 'client.lua'
-server_script 'server.lua'
+server_scripts {
+    '@hrp-metrics/lib/log.lua', -- HrpLog: structured logs (PRODUCTION-SERVER docs/dev/logs.md)
+    'server.lua',
+}
