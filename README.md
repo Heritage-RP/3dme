@@ -20,6 +20,9 @@ The /me command allows you to display a specific action above the head of a play
 | Font of the text | ```config.lua``` : line 7 | ```font = 0``` ([available fonts](https://imgur.com/a/oV3ciWs)) |
 | Time on screen | ```config.lua``` : line 8 | ```time = 5000``` |
 | Language | ```config.lua``` : line 4 | ```language = 'en'``` |
+| Visibility range (the server only sends a `/me` to players this close, same routing bucket) | ```config.lua``` : line 12 | ```dist = 250``` |
+| Longest `/me` (characters, longer is cut; an empty `/me` is ignored) | ```config.lua``` : line 13 | ```maxLength = 120``` |
+| Min. time between two `/me` of a player (ms, extra ones are ignored) | ```config.lua``` : line 14 | ```cooldown = 1000``` |
 
 ## Updates
 To see the previous changelogs, please refer to the [FiveM forum post](https://forum.cfx.re/t/release-me-but-the-text-is-3d-printed/).
