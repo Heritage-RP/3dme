@@ -9,7 +9,9 @@ Config = {
     font = 0, -- Text font
     time = 5000, -- Duration to display the text (in ms)
     scale = 0.5, -- Text scale
-    dist = 250, -- Min. distance to draw 
+    dist = 250, -- Max. distance to see a /me (the server only sends it to players this close)
+    maxLength = 120, -- Longest /me text (characters, longer is cut)
+    cooldown = 1000, -- Min. time between two /me of a player (in ms)
 }
 
 -- Languages available
