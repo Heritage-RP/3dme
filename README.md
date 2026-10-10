@@ -24,6 +24,12 @@ The /me command allows you to display a specific action above the head of a play
 | Longest `/me` (characters, longer is cut; an empty `/me` is ignored) | ```config.lua``` : line 13 | ```maxLength = 120``` |
 | Min. time between two `/me` of a player (ms, extra ones are ignored) | ```config.lua``` : line 14 | ```cooldown = 1000``` |
 
+## Tests
+Server `/me` rules (range, cooldown, length), with FiveM stubs, in any Lua 5.4 from the resource folder:
+```
+docker run --rm -v "$PWD":/w -w /w nickblah/lua:5.4 lua tests/lua/server_spec.lua
+```
+
 ## Updates
 To see the previous changelogs, please refer to the [FiveM forum post](https://forum.cfx.re/t/release-me-but-the-text-is-3d-printed/).
 
