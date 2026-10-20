@@ -4,7 +4,7 @@
 
 -- Global configuration
 Config = {
-    language = 'fr',
+    language = GetConvar and GetConvar('ox:locale', 'en') or 'en', -- ox_lib's replicated locale (`setr ox:locale fr`), 'en' if unknown
     color = { r = 230, g = 230, b = 230, a = 255 }, -- Text color
     font = 0, -- Text font
     time = 5000, -- Duration to display the text (in ms)
@@ -35,3 +35,6 @@ Languages = {
         prefix = 'Personen '
     },
 }
+
+-- Fork patch (PATCHES.md): a language missing from the list falls back to English
+if not Languages[Config.language] then Config.language = 'en' end
