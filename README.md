@@ -19,7 +19,7 @@ The /me command allows you to display a specific action above the head of a play
 | Color of the text | ```config.lua``` : line 6 | ```color = { r = 230, g = 230, b = 230, a = 255 }``` |
 | Font of the text | ```config.lua``` : line 7 | ```font = 0``` ([available fonts](https://imgur.com/a/oV3ciWs)) |
 | Time on screen | ```config.lua``` : line 8 | ```time = 5000``` |
-| Language | ```config.lua``` : line 4 | ```language = 'en'``` |
+| Language | ```config.lua``` : line 7 | ox_lib's replicated locale: ```setr ox:locale fr``` in `server.cfg` (`en` when unset or unknown) |
 | Visibility range (the server only sends a `/me` to players this close, same routing bucket) | ```config.lua``` : line 12 | ```dist = 250``` |
 | Longest `/me` (characters, longer is cut; an empty `/me` is ignored) | ```config.lua``` : line 13 | ```maxLength = 120``` |
 | Min. time between two `/me` of a player (ms, extra ones are ignored) | ```config.lua``` : line 14 | ```cooldown = 1000``` |
@@ -29,6 +29,10 @@ Server `/me` rules (range, cooldown, length), with FiveM stubs, in any Lua 5.4 f
 ```
 docker run --rm -v "$PWD":/w -w /w nickblah/lua:5.4 lua tests/lua/server_spec.lua
 ```
+
+## Fork (Heritage-RP)
+Fork used by the core of [Heritage-RP/PRODUCTION-SERVER](https://github.com/Heritage-RP): its patches (range, cooldown
+and length of `/me`, language from `ox:locale`, HrpLog, tests) are listed in [PATCHES.md](PATCHES.md).
 
 ## Updates
 To see the previous changelogs, please refer to the [FiveM forum post](https://forum.cfx.re/t/release-me-but-the-text-is-3d-printed/).

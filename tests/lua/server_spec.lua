@@ -33,6 +33,7 @@ local function load(players)
     _G.HrpLog = { business = { info = function(msg, attrs) env.records[#env.records + 1] = { msg = msg, attrs = attrs } end } }
     _G.AddEventHandler = function(name, fn) env[name] = fn end
     _G.RegisterCommand = function(name, fn) env.command, env.commandName = fn, name end
+    _G.GetConvar = function(name, default) if name == 'ox:locale' then return LOCALE or 'fr' end return default end
     dofile('config.lua')
     dofile('server.lua')
     env.me = function(source, text)
@@ -103,6 +104,18 @@ do
     local text = env.sent[1].args[1]
     local body = text:match("^%* l'individu (.*) %*$")
     check('cut at 120 characters (UTF-8 aware)', body ~= nil and utf8.len(body) == Config.maxLength)
+end
+
+-- Language: ox_lib's replicated locale (`ox:locale`), English when unknown (fork patch, PRODUCTION-SERVER#476)
+do
+    for _, case in ipairs({ { 'fr', "l'individu" }, { 'en', 'the person' }, { 'xx', 'the person' } }) do
+        LOCALE = case[1]
+        local env = load({ [1] = { coords = vector3(0, 0, 0) } })
+        env.me(1, 'waves')
+        local text = env.sent[1] and env.sent[1].args[1] or ''
+        check(('ox:locale %s: "%s" prefix'):format(case[1], case[2]), text:find(case[2], 1, true) == 3)
+    end
+    LOCALE = nil
 end
 
 if failures > 0 then
